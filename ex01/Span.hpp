@@ -6,7 +6,7 @@
 /*   By: justindaly <justindaly@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:03:31 by justindaly        #+#    #+#             */
-/*   Updated: 2024/06/28 18:56:49 by justindaly       ###   ########.fr       */
+/*   Updated: 2024/06/28 19:53:32 by justindaly       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,20 @@ class Span
 		void	addNumber(int n);
 		int		shortestSpan() const;
 		int		longestSpan() const;
+
+
+		void	addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
+		//to print the numbers
+		int		getSize() const {
+			return _N;
+		}
+
+		std::vector<int> getNumbers() const {
+			return _numbers;
+		}
+		void	printNumbers()  const;
+
 		
 };
 

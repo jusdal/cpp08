@@ -6,7 +6,7 @@
 /*   By: justindaly <justindaly@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:03:53 by justindaly        #+#    #+#             */
-/*   Updated: 2024/06/28 18:57:05 by justindaly       ###   ########.fr       */
+/*   Updated: 2024/06/28 19:49:37 by justindaly       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,22 @@ int	Span::longestSpan() const
 	return *max - *min;
 
 }
+
+void	Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (std::distance(begin, end) > static_cast<int>(_N - _numbers.size())) // Correct comparison
+    {
+        throw std::out_of_range("Not enough space in Span to add range");
+    }
+    _numbers.insert(_numbers.end(), begin, end);
+}
+
+void	Span::printNumbers() const
+{
+    		std::cout << "Numbers in Span: ";
+    		for (std::vector<int>::const_iterator it = _numbers.begin(); it != _numbers.end(); ++it) {
+        		std::cout << *it << " ";
+    		}		
+    		std::cout << std::endl;
+}
+
