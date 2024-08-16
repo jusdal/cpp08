@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: justindaly <justindaly@student.42.fr>      +#+  +:+       +#+        */
+/*   By: jdaly <jdaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:03:47 by justindaly        #+#    #+#             */
-/*   Updated: 2024/06/28 19:52:50 by justindaly       ###   ########.fr       */
+/*   Updated: 2024/08/16 21:20:53 by jdaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@
 #include "Span.hpp"
 #include <iostream>
 #include <vector>
-#include <ctime> // for time()
-#include <cstdlib> // for srand() and rand()
+#include <ctime>
 
 int main() {
-    //srand(time(0)); // Seed random number generator
+
+     std::srand(std::time(NULL)); // Seed random number generator
 
     // Test 1: Empty Span
+    std::cout << "\n--------------TEST 1--------------" << std::endl;
     try {
         Span sp1(0);
         std::cout << sp1.shortestSpan() << std::endl;
@@ -47,6 +48,7 @@ int main() {
     }
 
     // Test 2: Single Element Span
+    std::cout << "\n--------------TEST 2--------------" << std::endl;
     try {
         Span sp2(1);
         sp2.addNumber(42);
@@ -56,6 +58,7 @@ int main() {
     }
 
     // Test 3: Span with Maximum Capacity
+    std::cout << "\n--------------TEST 3--------------" << std::endl;
     try {
         Span sp3(5);
         sp3.addNumber(6);
@@ -63,6 +66,7 @@ int main() {
         sp3.addNumber(17);
         sp3.addNumber(9);
         sp3.addNumber(11);
+        sp3.printNumbers();
         std::cout << "Shortest Span: " << sp3.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp3.longestSpan() << std::endl;
     } catch (const std::exception& e) {
@@ -70,6 +74,7 @@ int main() {
     }
 
     // Test 4: Adding to a Full Span
+    std::cout << "\n--------------TEST 4--------------" << std::endl;
     try {
         Span sp4(5);
         sp4.addNumber(6);
@@ -83,17 +88,21 @@ int main() {
     }
 
     // Test 5: Large Span with Random Numbers
+    std::cout << "\n--------------TEST 5--------------" << std::endl;
     try {
-        Span sp5(10000);
-        for (int i = 0; i < 10000; ++i) {
-            sp5.addNumber(rand() % 100000); // Add random numbers
+        Span sp5(100000);
+        for (int i = 0; i < 100000; ++i) {
+            sp5.addNumber(rand() % 1000000); // Add random numbers
         }
+        //sp5.printNumbers();
         std::cout << "Shortest Span (Large): " << sp5.shortestSpan() << std::endl;
         std::cout << "Longest Span (Large): " << sp5.longestSpan() << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
+
+    std::cout << "\n--------------TEST 6--------------" << std::endl;
     try {
         Span sp6(10);
         int numbersToAdd[] = {15, 8, 22, -3, 0};
@@ -116,9 +125,11 @@ int main() {
         std::cout << "Exception (addRange Sufficient Space): " << e.what() << std::endl;
     }
 
-    // Test 7: addRange with Insufficient Space (C++98 compliant)
+    // Test 7: addRange with Insufficient Space
+    std::cout << "\n--------------TEST 7--------------" << std::endl;
     try {
         Span sp7(3);
+        sp7.addNumber(2);
         int numbersToAdd[] = {15, 8, 22, -3, 0};
         std::vector<int> numbersVector(numbersToAdd, numbersToAdd + 5);
 

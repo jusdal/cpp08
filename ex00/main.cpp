@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: justindaly <justindaly@student.42.fr>      +#+  +:+       +#+        */
+/*   By: jdaly <jdaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 17:41:09 by justindaly        #+#    #+#             */
-/*   Updated: 2024/06/28 17:59:19 by justindaly       ###   ########.fr       */
+/*   Updated: 2024/08/16 22:10:35 by jdaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(void)
 		std::list<int>::iterator itList = easyfind(l, 30);
 		std::cout << "Found " << *itList << std::endl;
 
-		itList = easyfind(l, 100); // should throw exception
+		itList = easyfind(l, 200); // should throw exception
 	}
 	catch(const std::exception& e)
 	{
